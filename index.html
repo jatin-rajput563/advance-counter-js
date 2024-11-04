@@ -18,10 +18,20 @@
                 <p id="number" class="text-center pt-5">0</p>
                 <button id="addone" class="Add-btn ml-88" type="button">Add
                     One</button>
-                <button id="save" class="Add-btn"
-                    type="button">Save</button>     
+                <button id="save" class="Add-btn" type="button">Save</button>
                 <p class="text-center pt-2">Previous values</p>
                 <p id="previousValues" class="d-flex gap-8 text-center justify-content-center align-items-center"></p>
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container mx-auto justify-content-center align-items-center d-flex  ">
+            <div class="input-box justify-content-center align-items-center d-flex">
+                <form action="">
+                    <input type="text" id="inputtext" placeholder="text-here" class="input">
+                    <button class="savebtn" id="btn">save-input</button>
+                    <p id="para" class="d-flex gap-8 text-center justify-content-center align-items-center"></p>
+                </form>
             </div>
         </div>
     </section>
@@ -33,7 +43,6 @@
         const addButton = document.querySelector("#addone");
         const saveButton = document.querySelector("#save");
         const previousValuesElement = document.querySelector("#previousValues");
-
         addButton.addEventListener("click", function () {
             numberElement.innerHTML = +numberElement.innerHTML + 1;
         });
@@ -41,9 +50,20 @@
         saveButton.addEventListener("click", function () {
             const currentValue = numberElement.innerHTML;
             const newValueElement = document.createElement("p");
-            newValueElement.textContent = currentValue; // Display the saved value
+            newValueElement.textContent = currentValue;
             previousValuesElement.appendChild(newValueElement);
         });
+        const inputtext = document.getElementById("inputtext")
+        const button = document.getElementById("btn")
+        const form = document.querySelector("form")
+        const inputData = document.querySelector("#para")
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+        })
+        button.addEventListener("click", function () {
+            inputData.innerHTML = inputtext.value
+            inputtext.value = ""
+        })
     </script>
 </body>
 
