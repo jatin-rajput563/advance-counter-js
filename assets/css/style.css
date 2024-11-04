@@ -7,6 +7,7 @@
 }
 
 .Add-btn {
+    max-width: 138px;
     height: 45px;
     padding: 13px 35px 13px 35px;
     border-radius: 4px;
@@ -19,4 +20,7 @@
 }
 .gap-8 {
     gap: 8px;
+}
+.ml-88{
+    margin-left: 88px;
 }

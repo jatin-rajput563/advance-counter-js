@@ -16,14 +16,12 @@
             <p class="text-center mt-5">Advance Counter app</p>
             <div class="box mx-auto">
                 <p id="number" class="text-center pt-5">0</p>
-                <div class="justify-content-center align-items-center d-flex gap-8">
-                    <button id="addone" class="Add-btn justify-content-center align-items-center d-flex"
-                        type="button">Add
-                        One</button>
-                    <button class="Add-btn justify-content-center align-items-center d-flex" type="button">Save</button>
-                </div>
+                <button id="addone" class="Add-btn ml-88" type="button">Add
+                    One</button>
+                <button id="save" class="Add-btn"
+                    type="button">Save</button>     
                 <p class="text-center pt-2">Previous values</p>
-                <p></p>
+                <p id="previousValues" class="d-flex gap-8"></p>
             </div>
         </div>
     </section>
@@ -31,10 +29,20 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        const cont = document.querySelector("#number")
-        const add = document.querySelector("#addone");
-        add.addEventListener("click", function () {
-            number.innerHTML = +number.innerHTML + 1;
+        const numberElement = document.querySelector("#number");
+        const addButton = document.querySelector("#addone");
+        const saveButton = document.querySelector("#save");
+        const previousValuesElement = document.querySelector("#previousValues");
+
+        addButton.addEventListener("click", function () {
+            numberElement.innerHTML = +numberElement.innerHTML + 1;
+        });
+
+        saveButton.addEventListener("click", function () {
+            const currentValue = numberElement.innerHTML;
+            const newValueElement = document.createElement("p");
+            newValueElement.textContent = currentValue; // Display the saved value
+            previousValuesElement.appendChild(newValueElement);
         });
     </script>
 </body>
